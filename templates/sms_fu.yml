@@ -4,58 +4,58 @@ config:
 carriers:
   rogers-canada:
     name: Rogers
-    value: @pcs.rogers.ca
+    value: '@pcs.rogers.ca'
   fido-canada:
     name: Fido
-    value: @fido.ca
+    value: '@fido.ca'
   chatr-canada:
     name: Chatr Wireless
-    value: @pcs.rogers.com
+    value: '@pcs.rogers.com'
   telus-canada:
     name: TELUS
-    value: @msg.telus.com
+    value: '@msg.telus.com'
   koodoo-canada:
     name: Koodoo
-    value: @msg.koodomobile.com
+    value: '@msg.koodomobile.com'
   public-canada:
     name: Public Mobile
-    value: @msg.telus.com
+    value: '@msg.telus.com'
   bell-canada:
     name: Bell
-    value: @txt.bell.ca
+    value: '@txt.bell.ca'
   virgin-canada:
     name: Virgin Mobile
-    value: @vmobile.ca
+    value: '@vmobile.ca'
   solo-canada:
     name: Solo Mobile
-    value: @txt.bell.ca
+    value: '@txt.bell.ca'
   northwestel-canada:
     name: NorthwestTel
-    value: @txt.bell.ca
+    value: '@txt.bell.ca'
   telebec-canada:
     name: Telebec
-    value: @txt.bell.ca
+    value: '@txt.bell.ca'
   northerntel-canada:
     name: NorthernTel
-    value: @txt.bell.ca
+    value: '@txt.bell.ca'
   wind-canada:
     name: Wind Mobile
-    value: @txt.windmobile.ca
+    value: '@txt.windmobile.ca'
   sasktel-canada:
     name: SaskTel
-    value: @sms.sasktel.com
+    value: '@sms.sasktel.com'
   videotron-canada:
     name: Videotron
-    value: @pcs.rogers.com
+    value: '@pcs.rogers.com'
   mts-canada:
     name: Manitoba Telecom (MTS)
-    value: @text.mtsmobility.com
+    value: '@text.mtsmobility.com'
   tbaytel-canada:
     name: TBayTel
-    value: @pcs.rogers.com
+    value: '@pcs.rogers.com'
   eastlink-canada:
     name: EastLink
-    value: @txt.eastlink.ca
+    value: '@txt.eastlink.ca'
   pcmobile-canada:
     name: PC Mobile
-    value: @mobiletxt.ca
+    value: '@mobiletxt.ca'
