@@ -16,13 +16,17 @@ Rogers, Fido, Chatr, TELUS, Koodo, Public Mobile, Bell, Virgin Mobile, Solo Mobi
 
 == Setup Instructions
 
-* Add `gem 'sms_fu', git: 'git@github.com:matt297/sms-fu.git'` to your gemfile
+* Include the gem in your Gemfile
+
+    gem 'sms_fu', git: 'git@github.com:matt297/sms-fu.git'
 
 * Copy sms_fu.yml from the templates folder to your config folder
 
 * (Optional) Modify sms_fu.yml in your config folder with your reply-to e-mail address
 
-* Add `include SMSFuHelper` to your application_helper.rb
+* Add to your application_helper.rb
+
+    include SMSFuHelper
 
 == Numbers and Carriers
 
