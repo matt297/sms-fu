@@ -4,19 +4,9 @@ Want to send an SMS from your Ruby application?  SMS Fu allows you to do just th
 It allows you to send a text message in the form of an e-mail to a cell phone on any
 of the many supported carriers.
 
-== Supported Carriers (US & International): 
+== Supported Carriers (Canadian):
 
-Alltel, Ameritech, AT&T, Bell Atlantic, BellSouth Mobility, Beeline(UA), BlueSkyFrog, 
-Boost Mobile, BPL Mobile, Cellular South, Claro (Brazil, Nicaragua), Comcast, Du, 
-E-Plus, Etisalat, Fido, kajeet, Mobinil, Mobitel, Movistar, Metro PCS, O2, Orange, 
-Powertel, PSC Wireless, Qwest, Rogers, Southern Link, Sprint, Suncom, 
-T-Mobile (US/UK/Germany), Telefonica, Tracfone, Virgin Mobile, Verizon Wireless, 
-Vodafone (UK, Egypt, Italy, Japan, Spain), and many more ...
-
-Some International carriers require that their users subscribe to an Email to SMS
-feature before they are able to receive SMS messages this way.  If one your users
-mentions that they are not receiving their messages, chances are it is due to this
-limitation.  Some of these carriers are include, Mobitel, Etisalat, T-Mobile (Netherlands).
+Rogers, Fido, Chatr, TELUS, Koodo, Public Mobile, Bell, Virgin Mobile, Solo Mobile, NorthwesTel, Telebec, NorthernTel, Wind Mobile, SaskTel, Videotron, MTS, TBayTel, EastLink, and PC Mobile
 
 == Requirements
 
@@ -26,15 +16,13 @@ limitation.  Some of these carriers are include, Mobitel, Etisalat, T-Mobile (Ne
 
 == Setup Instructions
 
-* Install sms_fu gem
-  
-  sudo gem install sms_fu
-  
-* Add sms_fu.yml to your config folder (Rails only)
+* Add `gem 'sms_fu', git: 'git@github.com:matt297/sms-fu.git'` to your gemfile
 
-  http://github.com/brendanlim/sms-fu/blob/master/templates/sms_fu.yml
+* Copy sms_fu.yml from the templates folder to your config folder
 
-* (Optional) Modify sms_fu.yml in your config folder with your reply-to e-mail address.
+* (Optional) Modify sms_fu.yml in your config folder with your reply-to e-mail address
+
+* Add `include SMSFuHelper` to your application_helper.rb
 
 == Numbers and Carriers
 
@@ -42,42 +30,36 @@ limitation.  Some of these carriers are include, Mobitel, Etisalat, T-Mobile (Ne
   phone numbers must be 10 digits in length.  
 * The two required parameters are the phone number and the phone carrier.
 * Here are some of the default carrier values:
-		
-    Alltel Wireless   =>  "alltel"
-    AT&T/Cingular     =>  "at&t"
-    Boost Mobile      =>  "boost"
-    Sprint Wireless   =>  "sprint"
-    T-Mobile US       =>  "t-mobile"
-    T-Mobile UK       =>  "t-mobile-uk"
-    Virgin Mobile     =>  "virgin"
-    Verizon Wireless  =>  "verizon"
-    Vodafone Tokyo    =>  "vodafone-jp-tokyo"
 
-* Check sms_fu.yml for a complete list of supported carriers, including international
-  carriers as well.
+    Bell              =>  "bell-canada"
+    Koodo             =>  "koodo-canada"
+    TELUS             =>  "telus-canada"
+    Rogers            =>  "rogers-canada"
+    Virgin Mobile     =>  "virgin-canada"
+    Wind Mobile       =>  "wind-canada"
+
+* Check sms_fu.yml for a complete list of supported carriers.
 
 == Configuration and Usage
 
 * SMS Fu relies on either ActionMailer for delivery.
 
-* Specify the :delivery option as
-  :action_mailer.
+* Specify the :delivery option as :action_mailer in your
 
     # ActionMailer delivery
     sms_fu = SMSFu::Client.configure(:delivery => :action_mailer)
-
 
 * Basic SMS delivery
 
     sms_fu.deliver("5558675309","at&t","message")
 
-* If you want to set a custom from e-mail per SMS message, you can do so 
+* If you want to set a custom from e-mail per SMS message, you can do so
   by doing the following.
 
     sms_fu.deliver("5558675309","at&t","message", :from => "bob@test.com")
 
 * You can set the maximum length of the SMS message, which is not set by
-  default.  Most phones can only accept 128 characters.  To do this just 
+  default.  Most phones can only accept 128 characters.  To do this just
   specify the limit option.
 
     sms_fu.deliver("5558675309","at&t","message", :limit => 128)
