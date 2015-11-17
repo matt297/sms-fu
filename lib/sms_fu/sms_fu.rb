@@ -1,18 +1,12 @@
 module SMSFu
   class Client
-    DELIVERY_METHODS = [:action_mailer, :pony]
-    attr_accessor :delivery, :pony_config
+    DELIVERY_METHODS = [:action_mailer]
+    attr_accessor :delivery
 
-    # Sets up a new SMSFu::Client.  Allows for use of ActionMailer or
-    # Pony for e-mail delivery.  Pony requires :pony_config to be 
-    # defined to work properly.
-    # 
+    # Sets up a new SMSFu::Client.
+    #
     # * ActionMailer 3
     #   sms_fu = SMSFu::Client.configure(:delivery => :action_mailer)
-    #
-    # * Pony 1.0
-    #   sms_fu = SMSFu::Client.configure(:delivery => :pony, 
-    #      :pony_config => { :via => :sendmail })
     #
     def self.configure(opts = {})
       new(opts)
@@ -20,8 +14,6 @@ module SMSFu
 
     def initialize(opts = {})
       self.delivery     = opts[:delivery].to_sym
-      self.pony_config  = opts[:pony_config]
-      raise SMSFuException.new("Pony configuration required") if @delivery == :pony && @pony_config.nil?
     end
 
     def delivery=(new_delivery)
@@ -42,11 +34,7 @@ module SMSFu
       message = message[0..limit-1]
       email   = SMSFu.sms_address(number,carrier)
 
-      if @delivery == :pony
-        Pony.mail({:to => email, :body => message, :from => from}.merge!(@pony_config))
-      else
-        SMSNotifier.send_sms(email, message, from).deliver
-      end
+      SMSNotifier.send_sms(email, message, from).deliver
     end
   end
   

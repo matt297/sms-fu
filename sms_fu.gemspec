@@ -43,13 +43,10 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<action_mailer>, [">= 3.0.0.rc2"])
-      s.add_development_dependency(%q<pony>, [">= 1.0"])
     else
       s.add_dependency(%q<action_mailer>, [">= 3.0.0.rc2"])
-      s.add_dependency(%q<pony>, [">= 1.0"])
     end
   else
     s.add_dependency(%q<action_mailer>, [">= 3.0.0.rc2"])
-    s.add_dependency(%q<pony>, [">= 1.0"])
   end
 end
