@@ -24,9 +24,13 @@ Rogers, Fido, Chatr, TELUS, Koodo, Public Mobile, Bell, Virgin Mobile, Solo Mobi
 
 * (Optional) Modify sms_fu.yml in your config folder with your reply-to e-mail address
 
-* Add to your application_helper.rb
+* Include the helper in your application_helper.rb
 
     include SMSFuHelper
+
+* Include SMSFu in the controller where you'll be sending SMS messages from
+
+    include SMSFu
 
 == Numbers and Carriers
 
@@ -46,12 +50,12 @@ Rogers, Fido, Chatr, TELUS, Koodo, Public Mobile, Bell, Virgin Mobile, Solo Mobi
 
 == Configuration and Usage
 
-* SMS Fu relies on either ActionMailer for delivery.
+* SMS Fu relies on ActionMailer for delivery
 
-* Specify the :delivery option as :action_mailer in your
+* Specify the :delivery option as :action_mailer in your config/application.rb
 
     # ActionMailer delivery
-    sms_fu = SMSFu::Client.configure(:delivery => :action_mailer)
+    SMSFu::Client.configure(:delivery => :action_mailer)
 
 * Basic SMS delivery
 
